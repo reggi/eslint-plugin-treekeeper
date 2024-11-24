@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "target": "ESNext",
+    "outDir": "./dist",
+    "moduleResolution": "NodeNext",
+    "rootDir": ".",
+    "declaration": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "noEmit": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*",
+    "test/**/*"
+, "ignore/types.ts"  ],
+  "exclude": ["coverage/**", "dist/**"]
+}
