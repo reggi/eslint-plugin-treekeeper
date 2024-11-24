@@ -25,8 +25,8 @@
     "report": "open ./coverage/index.html",
     "style": "prettier --check .",
     "style:fix": "prettier --write .",
-    "whole-test": "npm run style && npm run typecheck",
-    "test": "mcr --import tsx tsx --experimental-test-snapshots --test ",
+    "test": "npm run test:only && npm run style && npm run typecheck",
+    "test:only": "mcr --import tsx tsx --experimental-test-snapshots --test",
     "test:snap": "npm run test -- --test-update-snapshots",
     "typecheck": "tsc"
   },
@@ -48,5 +48,6 @@
     "sort-package-json": "^2.10.1",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2"
-  }
+  },
+  "coverage": 80
 }

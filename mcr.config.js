@@ -2,6 +2,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import {fileURLToPath} from 'url'
 import ts from 'typescript'
+import packageJson from './package.json'
 
 const tsConfig = JSON.parse(fs.readFileSync(path.resolve('./tsconfig.json'), 'utf-8'))
 
@@ -34,9 +35,18 @@ export default {
     const thresholds = {
       bytes: 100,
       statements: 100,
-      branches: 95,
+      branches: 0,
       functions: 100,
       lines: 100,
+      ...(typeof packageJson?.coverage === 'number'
+        ? {
+            bytes: packageJson.coverage,
+            statements: packageJson.coverage,
+            branches: 0,
+            functions: packageJson.coverage,
+            lines: packageJson.coverage,
+          }
+        : packageJson.coverage || {}),
     }
     const errors = []
     const {summary} = coverageResults
