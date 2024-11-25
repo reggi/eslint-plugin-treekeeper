@@ -1,5 +1,9 @@
 {
   "name": "eslint-plugin-reggi",
+  "version": "1.0.0",
+  "keywords": [],
+  "license": "ISC",
+  "author": "reggi",
   "type": "module",
   "exports": {
     ".": {
@@ -46,7 +50,7 @@
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "name": "./dist/bin.js"
+    "name": "dist/bin.js"
   },
   "files": [
     "dist/",
