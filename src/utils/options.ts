@@ -1,12 +1,19 @@
 import type {JSONSchema4} from '@typescript-eslint/utils/json-schema'
 
 export type Options = {
+  /** An array of file paths to include. */
   files: string[]
+  /** An array of file paths to ignore. */
   ignores: string[]
+  /** The name of the "index" file */
   index: string
+  /** The name of the shared "utils" directory in "src". */
   utils: string
+  /** The name of the "src" directory. */
   src: string
+  /** The name of the "test" directory. */
   test: string
+  /** The dir nest limit. */
   limit: number
 }
 

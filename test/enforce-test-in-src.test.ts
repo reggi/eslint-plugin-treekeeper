@@ -1,4 +1,4 @@
-import {rule, RULE} from '../src/strict-tests.ts'
+import {rule, RULE} from '../src/enforce-test-in-src.ts'
 import {plugin} from '../src/context/index.ts'
 import {defaultOptions} from '../src/utils/options.ts'
 import {RuleHarness} from './__fixtures__/main.ts'

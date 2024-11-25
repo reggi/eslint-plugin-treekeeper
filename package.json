@@ -5,6 +5,42 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./dir-nest-limit": {
+      "import": "./dist/dir-nest-limit.js",
+      "require": "./dist/dir-nest-limit.cjs"
+    },
+    "./enforce-has-index": {
+      "import": "./dist/enforce-has-index.js",
+      "require": "./dist/enforce-has-index.cjs"
+    },
+    "./enforce-test-in-src": {
+      "import": "./dist/enforce-test-in-src.js",
+      "require": "./dist/enforce-test-in-src.cjs"
+    },
+    "./no-root-import": {
+      "import": "./dist/no-root-import.js",
+      "require": "./dist/no-root-import.cjs"
+    },
+    "./suggest-move-in-utils": {
+      "import": "./dist/suggest-move-in-utils.js",
+      "require": "./dist/suggest-move-in-utils.cjs"
+    },
+    "./suggest-move-out-utils": {
+      "import": "./dist/suggest-move-out-utils.js",
+      "require": "./dist/suggest-move-out-utils.cjs"
+    },
+    "./unused": {
+      "import": "./dist/unused.js",
+      "require": "./dist/unused.cjs"
+    },
+    "./utils-no-import": {
+      "import": "./dist/utils-no-import.js",
+      "require": "./dist/utils-no-import.cjs"
+    },
+    "./utils-no-import-index": {
+      "import": "./dist/utils-no-import-index.js",
+      "require": "./dist/utils-no-import-index.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -17,15 +53,20 @@
     "src/"
   ],
   "scripts": {
-    "build": "npm run compile && npm run style:fix && sort-package-json",
-    "build-and-test": "npm run build && npm run test",
-    "compile": "tsup --clean ./src/*.ts --format esm,cjs --dts",
+    "build": "npm run build:only && npm run build:exports && npm run style:fix && npm run pkg:fix",
+    "build:exports": "node ./scripts/exports.js",
+    "build:only": "tsup --clean ./src/*.ts --format esm,cjs --dts",
+    "build:test": "npm run build && npm run test",
+    "build:watch": "npm run build:only -- --watch",
+    "depcheck": "depcheck",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "pkg": "sort-package-json --check",
+    "pkg:fix": "sort-package-json",
     "report": "open ./coverage/index.html",
     "style": "prettier --check .",
     "style:fix": "prettier --write .",
-    "test": "npm run test:only && npm run style && npm run typecheck",
+    "test": "npm run test:only && npm run style && npm run typecheck && npm run depcheck && npm run pkg",
     "test:only": "mcr --import tsx tsx --experimental-test-snapshots --test",
     "test:snap": "npm run test -- --test-update-snapshots",
     "typecheck": "tsc"
@@ -34,12 +75,15 @@
   "dependencies": {
     "@typescript-eslint/utils": "^8.15.0",
     "glob": "^11.0.0",
+    "minimatch": "^10.0.1",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@github/prettier-config": "^0.0.6",
     "@types/node": "^22.9.0",
     "@typescript-eslint/parser": "^8.15.0",
+    "@typescript-eslint/types": "^8.15.0",
+    "depcheck": "^1.4.7",
     "eslint": "^9.15.0",
     "eslint-plugin-import": "^2.31.0",
     "mock-fs": "^5.4.1",
@@ -49,5 +93,5 @@
     "tsup": "^8.3.5",
     "tsx": "^4.19.2"
   },
-  "coverage": 80
+  "coverage": 90
 }

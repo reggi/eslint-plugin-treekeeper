@@ -26,6 +26,7 @@ const defaultResults = {
   json: false,
   testModule: false,
   testRoot: false,
+  testSpecial: false,
   module: false,
   src: false,
 }

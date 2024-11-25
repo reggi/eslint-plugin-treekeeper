@@ -4,7 +4,7 @@ import type {Rule} from 'eslint'
 import {Context} from './context/index.ts'
 import {Paths} from './paths/index.ts'
 
-export const RULE = 'strict-index'
+export const RULE = 'enforce-has-index'
 let cache: Paths | undefined
 
 export const rule = RuleCreator.withoutDocs({

@@ -3,14 +3,14 @@ import {defaultOptions, type Options} from './utils/options.ts'
 import {plugin} from './context/index.ts'
 
 import * as dirNestLimit from './dir-nest-limit.ts'
-import * as index4Index from './index-4-index.ts'
-import * as indexImports from './imports-index.ts'
-import * as utilsImports from './imports-utils.ts'
-import * as strictIndex from './strict-index.ts'
-import * as strictTests from './strict-tests.ts'
-import * as strictUtils from './strict-utils.ts'
-import * as modNoRoot from './mod-no-root.ts'
+import * as enforceHasIndex from './enforce-has-index.ts'
+import * as enforceTestInSrc from './enforce-test-in-src.ts'
+import * as noRootImport from './no-root-import.ts'
+import * as suggestMoveInUtils from './suggest-move-in-utils.ts'
+import * as suggestMoveOutUtils from './suggest-move-out-utils.ts'
 import * as unused from './unused.ts'
+import * as utilsNoImport from './utils-no-import.ts'
+import * as utilsNoImportIndex from './utils-no-import-index.ts'
 
 function wrap({rule, RULE}: {rule: Rule.RuleModule; RULE: string}) {
   return {
@@ -56,15 +56,15 @@ const createPluginReccomended = (plugin: string) => {
 }
 
 const rules = [
-  index4Index,
   dirNestLimit,
-  indexImports,
-  utilsImports,
-  strictIndex,
-  strictTests,
-  strictUtils,
+  enforceHasIndex,
+  enforceTestInSrc,
+  noRootImport,
+  suggestMoveInUtils,
+  suggestMoveOutUtils,
   unused,
-  modNoRoot,
+  utilsNoImport,
+  utilsNoImportIndex,
 ]
 
 export const createRecommended = createPluginReccomended(plugin)

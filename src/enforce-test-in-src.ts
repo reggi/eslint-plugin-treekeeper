@@ -4,7 +4,7 @@ import type {Rule} from 'eslint'
 import {Context} from './context/index.ts'
 import {Paths} from './paths/index.ts'
 
-export const RULE = 'strict-tests'
+export const RULE = 'enforce-test-in-src'
 let cache: Paths | undefined
 
 export const rule = RuleCreator.withoutDocs({

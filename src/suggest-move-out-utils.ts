@@ -4,7 +4,7 @@ import type {Rule} from 'eslint'
 import {Context, plugin} from './context/index.ts'
 import {Paths} from './paths/index.ts'
 
-export const RULE = 'strict-utils'
+export const RULE = 'suggest-move-out-utils'
 let cache: Paths | undefined
 
 export const rule = RuleCreator.withoutDocs({

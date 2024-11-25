@@ -1,4 +1,4 @@
-import {defaultOptions, Options, schema} from './utils/options.ts'
+import {defaultOptions, schema} from './utils/options.ts'
 import {RuleCreator} from '@typescript-eslint/utils/eslint-utils'
 import type {Rule} from 'eslint'
 import {Context, plugin} from './context/index.ts'

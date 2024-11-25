@@ -4,23 +4,22 @@ import type {Rule} from 'eslint'
 import {Context, plugin} from './context/index.ts'
 import {localImport} from './utils/local-import.ts'
 
-export const RULE = 'imports-index'
+export const RULE = 'utils-no-import-index'
 export const rule = RuleCreator.withoutDocs({
   meta: {
     messages: {
-      [RULE]:
-        'Can\'t import across modules, "{{ relativeChild }}" used in at least 2 places {{ modPlaces }}, moved it to "{{ utils }}".',
+      [RULE]: '"{{ indexFile }}" files can only be imported by other "{{ indexFile }}" files.',
     },
     schema,
     type: 'problem',
   },
-  defaultOptions: [defaultOptions],
+  defaultOptions: [{index: 'index'}],
   create(context) {
     const ctx = new Context(context, plugin, RULE, defaultOptions)
-    if (!ctx.isModuleIndex()) return {}
+    if (!ctx.isModuleUtilOrUtils() || ctx.isRoot()) return {}
     return localImport((node, filename) => {
       const ictx = ctx.import(filename)
-      if (!ictx.isValidModuleIndexImport()) {
+      if (ictx.isModuleIndex()) {
         context.report({
           messageId: RULE,
           node,

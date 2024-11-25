@@ -1,4 +1,4 @@
-import {rule, RULE} from '../src/index-4-index.ts'
+import {rule, RULE} from '../src/utils-no-import-index.ts'
 import {plugin} from '../src/context/index.ts'
 import {defaultOptions} from '../src/utils/options.ts'
 import {RuleHarness} from './__fixtures__/main.ts'

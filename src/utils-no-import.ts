@@ -3,11 +3,12 @@ import {RuleCreator} from '@typescript-eslint/utils/eslint-utils'
 import type {Rule} from 'eslint'
 import {Context, plugin} from './context/index.ts'
 import {localImport} from './utils/local-import.ts'
-export const RULE = 'mod-no-root'
+
+export const RULE = 'utils-no-import'
 export const rule = RuleCreator.withoutDocs({
   meta: {
     messages: {
-      [RULE]: 'Cant import files at root of "{{ src }}" in "{{ modForChild }}"',
+      [RULE]: 'Files in "{{ utils }}" or non "{{ indexFile }}" files in a module should never import another file.',
     },
     schema,
     type: 'problem',
@@ -15,10 +16,10 @@ export const rule = RuleCreator.withoutDocs({
   defaultOptions: [defaultOptions],
   create(context) {
     const ctx = new Context(context, plugin, RULE, defaultOptions)
-    if (ctx.isTest() || ctx.isRoot()) return {}
+    if (!ctx.isModuleUtilOrUtils()) return {}
     return localImport((node, filename) => {
       const ictx = ctx.import(filename)
-      if (ictx.isRoot()) {
+      if (!ictx.isValidModuleUtilImport()) {
         context.report({
           messageId: RULE,
           node,
