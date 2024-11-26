@@ -1,6 +1,6 @@
 import {describe, it} from 'node:test'
 import {findOne} from '../../src/paths/find-one.ts'
-import assert from 'assert'
+import assert from 'node:assert'
 
 describe('findOne', () => {
   it('should return the item that matches the predicate', () => {

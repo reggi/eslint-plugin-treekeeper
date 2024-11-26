@@ -1,5 +1,5 @@
 import type {TSESTree} from '@typescript-eslint/types'
-import path from 'path'
+import path from 'node:path'
 
 export const isLocal = v => v.startsWith('.') || v.startsWith(path.sep)
 

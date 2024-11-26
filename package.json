@@ -77,7 +77,7 @@
     "report": "open ./coverage/index.html",
     "style": "prettier --check .",
     "style:fix": "prettier --write .",
-    "test": "npm run test:only && npm run style && npm run typecheck && npm run depcheck && npm run pkg",
+    "test": "npm run test:only && npm run style && npm run typecheck && npm run depcheck && npm run pkg && npm run lint",
     "test:only": "mcr --import tsx tsx --experimental-test-snapshots --test",
     "test:snap": "npm run test -- --test-update-snapshots",
     "typecheck": "tsc"
@@ -97,6 +97,7 @@
     "depcheck": "^1.4.7",
     "eslint": "^9.15.0",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-node-specifier": "^1.0.2",
     "mock-fs": "^5.4.1",
     "monocart-coverage-reports": "^2.11.2",
     "prettier": "^3.2.5",

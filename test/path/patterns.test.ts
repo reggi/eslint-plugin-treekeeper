@@ -2,7 +2,7 @@ import {patterns} from '../../src/path/patterns.ts'
 import {defaultOptions} from '../../src/utils/options.ts'
 import {describe, it} from 'node:test'
 import {minimatch} from 'minimatch'
-import assert from 'assert'
+import assert from 'node:assert'
 
 const pathType = (path: string, pattern: keyof typeof patterns) => {
   const pat = patterns[pattern]({...defaultOptions}, '.ts')

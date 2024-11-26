@@ -1,6 +1,6 @@
 import {RuleTester} from 'eslint'
 import typescriptParser from '@typescript-eslint/parser'
-import path from 'path'
+import path from 'node:path'
 import mock from 'mock-fs'
 import {test} from 'node:test'
 

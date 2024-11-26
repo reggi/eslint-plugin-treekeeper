@@ -4,9 +4,8 @@ import {Path} from '../path/index.ts'
 import {findOne} from './find-one.ts'
 import {getImports} from './imports.ts'
 import {isLocal} from '../utils/local-import.ts'
-import path from 'path'
 import {createDependencyMap} from '../utils/depmap.ts'
-import fs from 'fs'
+import fs from 'node:fs'
 
 const vanityAnd = (v: (string | undefined)[]) => {
   return v

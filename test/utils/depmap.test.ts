@@ -1,5 +1,5 @@
 import {describe, it} from 'node:test'
-import assert from 'assert'
+import assert from 'node:assert'
 import {createDependencyMap, GraphItem} from '../../src/utils/depmap.ts'
 
 describe('createDependencyMap', () => {

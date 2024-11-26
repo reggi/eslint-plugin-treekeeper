@@ -1,6 +1,7 @@
 import eslintPluginImport from 'eslint-plugin-import'
 import typescriptParser from '@typescript-eslint/parser'
 import {recommended} from './dist/index.js'
+import nodeSpecifier from 'eslint-plugin-node-specifier'
 
 const shared = {
   files: ['**/*.ts', 'test/**/*.ts'],
@@ -21,8 +22,10 @@ export default [
     },
     plugins: {
       import: eslintPluginImport,
+      'node-specifier': nodeSpecifier,
     },
     rules: {
+      'node-specifier/enforce-node-specifier': 'error',
       'import/extensions': [
         'error',
         'ignorePackages',
