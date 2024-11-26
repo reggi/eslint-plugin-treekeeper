@@ -27,15 +27,6 @@ export class Context extends Path {
     this.options = options
     this.indexFile = options.index + ext
   }
-  createPath(filename: string) {
-    const {options, cwd, ext} = this
-    return new Path({filename, options, ext, cwd, parent: this})
-  }
-  import(importPath: string) {
-    const {options, cwd, ext} = this
-    const filename = path.join(this.dirname, importPath)
-    return this.createPath(filename)
-  }
   projectFiles() {
     return Paths.fromSync({options: this.options, ext: this.ext, cwd: this.cwd, parent: this})
   }

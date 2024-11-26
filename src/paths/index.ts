@@ -42,7 +42,7 @@ export class Paths {
         parent.filename,
         getImports(parent.filename)
           .filter(isLocal)
-          .map(filename => path.join(parent.dirname, filename)),
+          .map(filename => parent.import(filename).filename),
       ]),
     )
     createDependencyMap(keyedImports).map(({key, dependencies, dependents}) => {

@@ -1,7 +1,13 @@
 {
   "name": "eslint-plugin-reggi",
   "version": "1.0.0",
-  "keywords": [],
+  "keywords": [
+    "eslint",
+    "plugin",
+    "typescript",
+    "structure",
+    "tree-lint"
+  ],
   "license": "ISC",
   "author": "reggi",
   "type": "module",

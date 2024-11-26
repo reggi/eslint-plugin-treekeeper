@@ -153,4 +153,15 @@ export class Path {
     if (this.shebang()) return
     if (this.importedBy.length === 0) return this
   }
+  createPath(filename: string) {
+    const {options, cwd, ext} = this
+    return new Path({filename, options, ext, cwd, parent: this})
+  }
+  import(importPath: string) {
+    let filename = path.join(this.dirname, importPath)
+    if (!path.extname(filename)) {
+      filename += this.ext
+    }
+    return this.createPath(filename)
+  }
 }
