@@ -1,7 +1,7 @@
 import {defaultOptions, schema} from './utils/options.ts'
 import {RuleCreator} from '@typescript-eslint/utils/eslint-utils'
 import type {Rule} from 'eslint'
-import {Context} from './context/index.ts'
+import {Context, plugin} from './context/index.ts'
 import {Paths} from './paths/index.ts'
 
 export const RULE = 'enforce-has-index'
@@ -17,7 +17,7 @@ export const rule = RuleCreator.withoutDocs({
   },
   defaultOptions: [defaultOptions],
   create(context) {
-    const ctx = new Context(context, 'reggi', RULE, defaultOptions)
+    const ctx = new Context(context, plugin, RULE, defaultOptions)
     if (!cache) {
       cache = ctx.projectFiles()
     }

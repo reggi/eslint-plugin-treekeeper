@@ -1,4 +1,4 @@
-# eslint-plugin-tidy-flat
+# eslint-plugin-treekeeper
 
 I'm obsessed with how we organize code. I've made many attempts at coming up with a "best practice" when it comes to organizing a javascript / typescript project (see some links below). Last year I worked on a project called "Tree Lint" which built up a dependency map of all your local files and would be opinionated about where they should live relative to each other, the idea was if I authored code in just the right way, it would be easy to break a "branch" of the dir structure into it's own package. In practice this created a very deeply nested structure. This takes from some of the learnings from that original project and expands on them with a different set of rules and relations, and favors a shallow or flat folder structure.
 
@@ -78,21 +78,21 @@ src/
 
 ## A La Carte Plugin Pick
 
-If you prefer to include only specific rules from the `eslint-plugin-reggi` plugin, you can do so by configuring them individually in your ESLint configuration file.
+If you prefer to include only specific rules from the `eslint-plugin-treekeeper` plugin, you can do so by configuring them individually in your ESLint configuration file.
 
 Example:
 
 ```js
 // eslint.config.js
-import {reccomended} from 'eslint-plugin-reggi'
+import {reccomended} from 'eslint-plugin-treekeeper'
 
 export default [reccomended({})]
 ```
 
 ```js
 // eslint.config.js
-import {createRecommended} from 'eslint-plugin-reggi'
-import plugin from 'eslint-plugin-reggi/dir-nest-limit'
+import {createRecommended} from 'eslint-plugin-treekeeper'
+import plugin from 'eslint-plugin-treekeeper/dir-nest-limit'
 const reccomended = createRecommended(plugin)
 
 export default [reccomended()]

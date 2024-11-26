@@ -3,7 +3,7 @@ import {Path} from '../path/index.ts'
 import {type Options} from '../utils/options.ts'
 import {Paths} from '../paths/index.ts'
 
-export const plugin = 'reggi'
+export const plugin = 'treekeeper'
 
 export class Context extends Path {
   filename: string
