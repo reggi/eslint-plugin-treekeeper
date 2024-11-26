@@ -1,6 +1,6 @@
 # eslint-plugin-treekeeper
 
-I'm obsessed with how we organize code. I've made many attempts at coming up with a "best practice" when it comes to organizing a javascript / typescript project (see some links below). Last year I worked on a project called "Tree Lint" which built up a dependency map of all your local files and would be opinionated about where they should live relative to each other, the idea was if I authored code in just the right way, it would be easy to break a "branch" of the dir structure into it's own package. In practice this created a very deeply nested structure. This takes from some of the learnings from that original project and expands on them with a different set of rules and relations, and favors a shallow or flat folder structure.
+I'm obsessed with how we organize code. I've made many attempts to define "best practices" for organizing JavaScript/TypeScript projects (see links below). Last year, I worked on a project called "Tree Lint," which built a dependency map of all local files and provided opinions about where they should reside relative to one another. The idea was that if I authored code in just the right way, it would be easy to break a "branch" of the directory structure into its own package. However, in practice, this approach led to a deeply nested structure. This project builds on the lessons learned from that experience, introducing a new set of rules and relationships that favor a shallow, flat folder structure.
 
 ## How does it work?
 
@@ -100,13 +100,11 @@ export default [reccomended()]
 
 ## Learnings
 
-- eslint doesn't work well at a project level. (It's designed to be lint files and not their relationship to other files.)
-- plugins have no way of running a handler when eslint is finished
-- eslint's plugin system is synchoronous
+ESLint doesn’t work well at the project level because it’s designed to lint individual files, not their relationships to other files. Additionally, ESLint plugins have no way to run a handler once ESLint has finished processing, and the plugin system itself is synchronous, which adds further limitations.
 
-I really wanted a way to have a plugin do stuff it wasn't supposed to do, like the `unused` plugin. The only way for this to work was to use the same glob pattern in the `eslint.config.js` and get a count of all the files, and have the plugin also get it's own count, and when they both equal each other then eslint is on it's last file. This is a real pain.
+I wanted a plugin to handle tasks it wasn’t originally designed for, like the unused plugin. The only way to achieve this was by using the same glob pattern in the eslint.config.js file to count all the files. The plugin would then maintain its own file count, and when both counts matched, it would signal that ESLint was on its last file. This approach, while functional, is a significant hassle.
 
-On top of this I also do ast parsing with typescript on the first plugin invocation, that way I have a structure to compare individual files to. I think this this is all pretty neat hackery for getting eslint plugin to do things it really wasnt designed for.
+To work around these limitations, I also perform AST parsing with TypeScript during the first plugin invocation. This allows me to create a structure that individual files can be compared against. While it’s a lot of work, I think it’s a pretty neat hack to get an ESLint plugin to do things it wasn’t originally designed to handle.
 
 ## Prior Art:
 

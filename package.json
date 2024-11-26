@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-treekeeper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "eslint",
     "plugin",
@@ -8,6 +8,10 @@
     "structure",
     "tree-lint"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reggi/eslint-plugin-treekeeper"
+  },
   "license": "ISC",
   "author": "reggi",
   "type": "module",
@@ -55,9 +59,6 @@
   },
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
-  "bin": {
-    "name": "dist/bin.js"
-  },
   "files": [
     "dist/",
     "src/"
