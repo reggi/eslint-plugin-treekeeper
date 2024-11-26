@@ -99,7 +99,7 @@ export class Path {
     throw new Error('isSibling called without context')
   }
   isValidModuleIndexImport() {
-    return this.isModuleIndex() || this.isUtils() || this.isSibling()
+    return this.isModuleIndex() || this.isUtils() || this.isSibling() || this.isJson()
   }
   isValidModuleUtilImport() {
     return this.isJson()
